@@ -1,0 +1,21 @@
+body {
+  background-color: honeydew;
+}
+
+.search-bar-container {
+  display: flex;
+  position: relative;
+  min-width: 100px;
+}
+
+.search-bar {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 80%;
+  height: 22px;
+  outline: 0;
+}
+
+.search-bar:hover, .search-bar:focus {
+  border: 1.5px solid #098
+}

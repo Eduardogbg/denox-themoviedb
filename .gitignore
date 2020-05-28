@@ -1,0 +1,8 @@
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+
+node_modules/.cache
+
+dist
