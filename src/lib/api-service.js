@@ -43,3 +43,7 @@ export const getMediaType = mediaType => id => {
 export const configuration = async () => {
   return makeRequest('/configuration');
 }
+
+export const getMovieCredits = personId => {
+  return makeRequest(`/person/${personId}/movie_credits`);
+}
