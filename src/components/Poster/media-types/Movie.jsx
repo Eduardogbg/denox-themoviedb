@@ -2,8 +2,13 @@ import React from 'react';
 import SmartImage from '../SmartImage';
 
 
-const Movie = ({ posterPath }) => (
-  <SmartImage imagePath={posterPath} />
+const Movie = ({ id, posterPath, ...props }) => (
+  <div className="poster">
+    <SmartImage imagePath={posterPath} />
+    <span className="poster-description">
+      Filme {id}
+    </span>
+  </div>
 );
 
 

@@ -1,3 +1,5 @@
 {
-  "key": "45dc1c521a540912fb61353e7eec6da9"
+  "key": "45dc1c521a540912fb61353e7eec6da9",
+  "imagesBasePath": "https://image.tmdb.org/t/p",
+  "imagesSizeUri": "/w185"
 }

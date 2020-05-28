@@ -19,3 +19,13 @@ body {
 .search-bar:hover, .search-bar:focus {
   border: 1.5px solid #098
 }
+
+.poster-display {
+  display: flex
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}

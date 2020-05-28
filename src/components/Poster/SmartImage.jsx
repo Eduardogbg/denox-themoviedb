@@ -1,10 +1,13 @@
 import React from 'react';
+import config from '../../config/api';
 
 
-const imgBasePath ="https://image.tmdb.org/t/p/w185";
+const { 
+  imagesBasePath, imagesSizeUri
+} = config;
 
 const SmartImage = ({ imagePath }) => {
-  return <img src={`${imgBasePath}${imagePath}`}/>;
+  return imagePath && <img src={`${imagesBasePath}${imagesSizeUri}${imagePath}`} />;
 }
 
 

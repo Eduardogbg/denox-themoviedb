@@ -5,7 +5,7 @@ import Poster from '../Poster';
 const SearchResults = ({ results, totalResults, page, totalPages }) => {
   return (results || null) && (
     <div>
-      <div style={{ display: 'flex' }}>
+      <div className="poster-display">
         {results.map(result => <Poster key={result.mediaType + result.id} {...result} />)}
       </div>
       <div>

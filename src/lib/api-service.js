@@ -9,40 +9,37 @@ const parseCamelCase = (k, v) => (
 const { key } = config;
 const apiHref = "https://api.themoviedb.org/3";
 
+const init = {
+  method: 'GET',
+  headers: new Headers(),
+  mode: 'cors',
+  cache: 'default'
+};
 
-export const multiSearch = async (search, page) => {
-  const init = {
-    method: 'GET',
-    headers: new Headers(),
-    mode: 'cors',
-    cache: 'default'
-  };
-  const query = {
-    query: search,
+const makeRequest = async (uri, query = {}) => {
+  const url = new URL(`${apiHref}${uri}`);
+  url.search = new URLSearchParams({
+    ...query,
     api_key: key
-  };
-  if (page) query.page = page;
-  
-  const url = new URL(`${apiHref}/search/multi`);
-  url.search = new URLSearchParams(query).toString();
+  }).toString();
 
   const response = await fetch(url, init);
   
   return JSON.parse(await response.text(), parseCamelCase); 
 }
 
+
+export const multiSearch = (search, page) => {
+  const query = { query: search }; 
+  if (page) query.page = page;
+  
+  return makeRequest('/search/multi', query);
+}
+
+export const getMediaType = mediaType => id => {
+  return makeRequest(`/${mediaType}/${id}`);
+}
+
 export const configuration = async () => {
-  const init = {
-    method: 'GET',
-    headers: new Headers(),
-    mode: 'cors',
-    cache: 'default'
-  };
-
-  const url = new URL(`${apiHref}/configuration`);
-  url.search = new URLSearchParams({ api_key: key }).toString();
-
-  const response = await fetch(url, init);
-
-  return await response.json();
+  return makeRequest('/configuration');
 }

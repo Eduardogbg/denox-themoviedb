@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
 
-const gatherSearch = setState => async (search, page) => {
+const gatherSearch = (defaultState, setState) => async (search, page) => {
   if (search) {
     const response = await multiSearch(search, page);
     
@@ -15,16 +15,25 @@ const gatherSearch = setState => async (search, page) => {
     }
   
     setState(response);
+  } else if (search === '') {
+    setState(defaultState)
   }
 }
+
+const defaultResults = {
+  results: [],
+  page: 0,
+  totalPages: 0,
+  totalResults: 0
+};
 
 const Search = ({ location }) => {
   const query = parse(location.search, { ignoreQueryPrefix: true });
 
   const [search, setSearch] = useState(query.search || '');
-  const [results, setResults] = useState({});  
+  const [results, setResults] = useState(defaultResults);  
   
-  const searchMedia = gatherSearch(setResults);
+  const searchMedia = gatherSearch(defaultResults, setResults);
   const searchWhenIdle = debounce(searchMedia, 300);
 
   useEffect(() => { 
