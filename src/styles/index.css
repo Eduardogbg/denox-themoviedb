@@ -29,3 +29,13 @@ body {
   flex-direction: column;
   justify-content: space-between
 }
+
+.description-container {
+  display: flex;
+}
+
+.description-container .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
