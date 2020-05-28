@@ -7,7 +7,9 @@ const {
 } = config;
 
 const SmartImage = ({ imagePath }) => {
-  return imagePath && <img src={`${imagesBasePath}${imagesSizeUri}${imagePath}`} />;
+  return imagePath 
+    ? <img src={`${imagesBasePath}${imagesSizeUri}${imagePath}`} />
+    : <img src="assets/placeholder.png"/>;
 }
 
 

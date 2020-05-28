@@ -27,7 +27,7 @@ const defaultResults = {
   totalResults: 0
 };
 
-const Search = ({ location }) => {
+const Search = ({ location, history }) => {
   const query = parse(location.search, { ignoreQueryPrefix: true });
 
   const [search, setSearch] = useState(query.search || '');
@@ -43,6 +43,7 @@ const Search = ({ location }) => {
 
   const onTyping = search => {
     setSearch(search);
+    history.replace({ pathname: location.pathname, search: `?search=${search}`});
     searchWhenIdle(search);
   }
 

@@ -20,10 +20,6 @@ body {
   border: 1.5px solid #098
 }
 
-.poster-display {
-  display: flex
-}
-
 .poster {
   display: flex;
   flex-direction: column;
@@ -38,4 +34,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.results-row {
+  display: flex;
+  justify-content: space-around;
 }

@@ -11,7 +11,9 @@ const Person = ({ profilePath, name, birthday, ...props }) => {
       <SmartImage imagePath={profilePath} />
       <div className="description">
         <span className="description-name">{name}</span>
-        <span className="description-age">{ageFromBirthday(birthday)} anos</span>
+        {birthday && (
+          <span className="description-age">{ageFromBirthday(birthday)} anos</span>
+        )}
       </div>
     </div>
   );
