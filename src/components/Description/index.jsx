@@ -25,9 +25,10 @@ const Description = props => {
     return () => {};
   }, []);
 
+  const Component = mediaTypesMap[mediaType];
   return media
-    ? mediaTypesMap[mediaType]({ ...media })
-    : <h1>Carregando</h1>;
+    ? <Component {...media} />
+    : <h1>Carregando...</h1>;
 }
 
 
