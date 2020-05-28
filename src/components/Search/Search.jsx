@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { debounce } from 'lodash';
+import { debounce } from 'lodash-es';
 import { parse } from 'qs';
 import { multiSearch } from '../../lib/api-service';
 import SearchBar from './SearchBar';
@@ -27,7 +27,10 @@ const Search = ({ location }) => {
   const searchMedia = gatherSearch(setResults);
   const searchWhenIdle = debounce(searchMedia, 300);
 
-  useEffect(() => searchMedia(search), [location.search]);
+  useEffect(() => { 
+    searchMedia(search);
+    return () => {};
+  }, [location.search]);
 
   const onTyping = search => {
     setSearch(search);

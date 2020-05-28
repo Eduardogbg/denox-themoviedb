@@ -6,7 +6,7 @@ const SearchResults = ({ results, totalResults, page, totalPages }) => {
   return (results || null) && (
     <div>
       <div style={{ display: 'flex' }}>
-        {results.map(Poster)}
+        {results.map(result => <Poster key={result.mediaType + result.id} {...result} />)}
       </div>
       <div>
         <span>{page} - {totalPages}</span>

@@ -3,5 +3,11 @@ const common = require('./webpack.common');
 
 
 module.exports = merge(common, {
-  mode: 'production'
+  mode: 'production',
+  devtool: false,
+
+  optimization: {
+    providedExports: true,
+    usedExports: true
+  }
 });

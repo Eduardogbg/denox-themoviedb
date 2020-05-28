@@ -7,14 +7,15 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --hot --inline --config webpack.dev.js"
+    "start": "webpack-dev-server --hot --inline --config webpack.dev.js",
+    "analyze": "webpack-bundle-analyzer --port 8767 dist/stats.json"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -27,14 +28,19 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.0.1",
     "style-loader": "^1.2.1",
     "webpack": "next",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
-  }
+  },
+  "sideEffects": [
+    "./src/styles/*"
+  ]
 }

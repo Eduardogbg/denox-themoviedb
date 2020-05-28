@@ -1,4 +1,4 @@
-import { camelCase, isObject, mapKeys } from 'lodash';
+import { camelCase, isObject, mapKeys } from 'lodash-es';
 import config from '../config/api';
 
 
